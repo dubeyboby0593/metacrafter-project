@@ -1,8 +1,5 @@
 ## metacrafter-project
 
-
-Certainly, here's an extended README.md file for your Solidity smart contract code:
-
 ```markdown
 # Tokening Smart Contract
 
