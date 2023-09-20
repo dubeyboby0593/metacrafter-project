@@ -37,14 +37,6 @@ To interact with this smart contract, you'll need:
 
 - A development environment for Ethereum smart contracts, such as [Remix](https://remix.ethereum.org/), [Truffle](https://www.trufflesuite.com/), or [Hardhat](https://hardhat.org/).
 - A web3 provider like [MetaMask](https://metamask.io/) to deploy and interact with the contract.
-
-### Installation
-
-Clone the repository to your local machine:
-
-```bash
-git clone https://github.com/yourusername/Tokening-Smart-Contract.git
-cd Tokening-Smart-Contract
 ```
 
 Install any required dependencies (if any):
@@ -67,13 +59,12 @@ To mint new tokens to a specified address, call the `mint` function:
 ```solidity
 function mint(address _to, uint256 _value) public {
     // Ensure you have the necessary permissions to mint tokens.
-    require(hasMintPermission(msg.sender), "Minting not allowed.");
     totalSupply += _value;
     balances[_to] += _value;
 }
 ```
 
-Replace `hasMintPermission(msg.sender)` with your own logic for controlling who can mint tokens.
+
 
 ### Burning Tokens
 
@@ -81,7 +72,7 @@ To burn tokens from the sender's address, call the `burn` function:
 
 ```solidity
 function burn(uint256 _value) public {
-    require(balances[msg.sender] >= _value, "Insufficient balance.");
+    require(balances[msg.sender] >= _value, "Sorry! You Don't Have Enough Money");
     totalSupply -= _value;
     balances[msg.sender] -= _value;
 }
@@ -192,5 +183,3 @@ We welcome contributions from the community. To contribute to this project:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
-
-Feel free to customize this README to include more specific information about your project, such as deployment instructions for your specific development environment or additional contract functionalities. Additionally, update the placeholders like `yourusername` with your GitHub username and tailor the content to match your project's details and requirements.
